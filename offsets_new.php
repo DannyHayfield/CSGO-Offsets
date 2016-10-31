@@ -11,10 +11,10 @@ $offsets .= "ScoreBoardBase=0x2E8CCCC".",";			//ScoreBoardBase
 $offsets .= "Glowptr=0x4FC8B04".",";				//m_dwGlowObject
 $offsets .= "jump=0x4F47A34".",";					//m_dwForceJump
 $offsets .= "Glowindex=0xA320".",";					//m_iGlowIndex
-$offsets .= "m_iCompetitiveRanking=0x1A44".",";			//m_iCompetitiveRanking
-$offsets .= "m_iCompetitiveWins=0x1B48".",";			//m_iCompetitiveWins
+$offsets .= "m_iCompetitiveRanking=0x1A44".",";		//m_iCompetitiveRanking
+$offsets .= "m_iCompetitiveWins=0x1B48".",";		//m_iCompetitiveWins
 $offsets .= "m_bIsDormant=0xE9".",";				//m_bDormant
-$offsets .= "c_dwBaseEntityPosition=0x134".",";			//m_vecOrigin
+$offsets .= "c_dwBaseEntityPosition=0x134".",";		//m_vecOrigin
 $offsets .= "viewAngelOff=0x4D0C".",";				//m_dwViewAngles
 $offsets .= "m_iTeamNum=0xF0".",";					//m_iTeamNum
 $offsets .= "m_iHealth=0xFC".",";					//m_iHealth
