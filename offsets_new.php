@@ -20,7 +20,7 @@ $offsets .= "m_iTeamNum=0xF0".",";					//m_iTeamNum
 $offsets .= "m_iHealth=0xFC".",";					//m_iHealth
 $offsets .= "m_iCrossHairID=0xAA64".",";			//m_iCrossHairID
 $offsets .= "m_hActiveWeapon=0x2EE8".",";			//m_hActiveWeapon
-$offsets .= "m_iWeaponID=0x2F88".",";				//m_iItemDefinitionIndex (!!NO LONGER m_iWeaponID)
+$offsets .= "m_iWeaponID=0x32F0".",";				//m_iItemDefinitionIndex=2F88 (!!NO LONGER m_iWeaponID)
 $offsets .= "m_fFlashMaxAlpha=0xA304".",";			//m_flFlashMaxAlpha
 $offsets .= "m_bSpotted=0x939".",";					//m_bSpotted
 $offsets .= "m_fFlags=0x100".",";					//m_fFlags
