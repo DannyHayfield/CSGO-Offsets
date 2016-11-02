@@ -3,13 +3,13 @@ ob_start("ob_gzhandler");
 
 $offsets = "";
 $offsets .= "LocalPlayer=0xA8F53C".",";				//LocalPlayer / m_dwLocalPlayer
-$offsets .= "EntityList=0x4AB0EF4".",";				//EntityList / m_dwEntityList
+$offsets .= "EntityList=0x4AB0F74".",";				//EntityList / m_dwEntityList
 $offsets .= "EnginePointer=0x5C22C4".",";			//EnginePointer / m_dwClientState
-$offsets .= "RadarBase=0x4EE5CCC".",";				//RadarBase / m_dwRadarBase
+$offsets .= "RadarBase=0x4EE5D4C".",";				//RadarBase / m_dwRadarBase
 $offsets .= "iGameResource=0x2E8CCCC".",";			//iGameResource
 $offsets .= "ScoreBoardBase=0x2E8CCCC".",";			//ScoreBoardBase
-$offsets .= "Glowptr=0x4FC8B04".",";				//m_dwGlowObject
-$offsets .= "jump=0x4F47A34".",";					//m_dwForceJump
+$offsets .= "Glowptr=0x4FC8B94".",";				//m_dwGlowObject
+$offsets .= "jump=0x4F47AB4".",";					//m_dwForceJump
 $offsets .= "Glowindex=0xA320".",";					//m_iGlowIndex
 $offsets .= "m_iCompetitiveRanking=0x1A44".",";		//m_iCompetitiveRanking
 $offsets .= "m_iCompetitiveWins=0x1B48".",";		//m_iCompetitiveWins
