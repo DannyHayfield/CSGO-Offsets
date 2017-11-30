@@ -1,38 +1,47 @@
 <?php
-ob_start("ob_gzhandler");
-
-$offsets = "";
-$offsets .= "LocalPlayer=0xA8F53C".",";				//LocalPlayer / m_dwLocalPlayer
-$offsets .= "EntityList=0x4AB0F74".",";				//EntityList / m_dwEntityList
-$offsets .= "EnginePointer=0x5C22C4".",";			//EnginePointer / m_dwClientState
-$offsets .= "RadarBase=0x4EE5D4C".",";				//RadarBase / m_dwRadarBase
-$offsets .= "iGameResource=0x2E8CCCC".",";			//iGameResource
-$offsets .= "ScoreBoardBase=0x2E8CCCC".",";			//ScoreBoardBase
-$offsets .= "Glowptr=0x4FC8B94".",";				//m_dwGlowObject
-$offsets .= "jump=0x4F47AB4".",";					//m_dwForceJump
-$offsets .= "Glowindex=0xA320".",";					//m_iGlowIndex
-$offsets .= "m_iCompetitiveRanking=0x1A44".",";		//m_iCompetitiveRanking
-$offsets .= "m_iCompetitiveWins=0x1B48".",";		//m_iCompetitiveWins
-$offsets .= "m_bIsDormant=0xE9".",";				//m_bDormant
-$offsets .= "c_dwBaseEntityPosition=0x134".",";		//m_vecOrigin
-$offsets .= "viewAngelOff=0x4D0C".",";				//m_dwViewAngles
-$offsets .= "m_iTeamNum=0xF0".",";					//m_iTeamNum
-$offsets .= "m_iHealth=0xFC".",";					//m_iHealth
-$offsets .= "m_iCrossHairID=0xAA64".",";			//m_iCrossHairID
-$offsets .= "m_hActiveWeapon=0x2EE8".",";			//m_hActiveWeapon
-$offsets .= "m_iWeaponID=0x32F0".",";				//m_iItemDefinitionIndex=2F88 (!!NO LONGER m_iWeaponID)
-$offsets .= "m_fFlashMaxAlpha=0xA304".",";			//m_flFlashMaxAlpha
-$offsets .= "m_bSpotted=0x939".",";					//m_bSpotted
-$offsets .= "m_fFlags=0x100".",";					//m_fFlags
-$offsets .= "m_aimPunchAngle=0x70".",";				//m_aimPunchAngle / m_vecPunch (!!0x70 always)
-$offsets .= "m_Local=0x2FAC".",";					//m_Local
-$offsets .= "BoneMatrix=0x2698".",";				//m_dwBoneMatrix
-$offsets .= "RadarPointer=0x50".",";				//RadarPointer
-$offsets .= "RadarHealth=0x20".",";					//RadarHealth
-$offsets .= "RadarName=0x24".",";					//RadarName
-$offsets .= "RadarSize=0x1E0".",";					//RadarSize
-$offsets .= "m_szLastPlaceName=0x35A8".",";			//m_szLastPlaceName
-$offsets .= "m_angEyeAngles=0xA9FC"."";				//m_angEyeAngles
-
-echo trim($offsets);
+class CsgoOffsets {
+	public function __construct() {
+		$this->offsets = file_get_contents("https://raw.githubusercontent.com/frk1/hazedumper/master/csgo.json");
+		$this->offsetsArray = json_decode($this->offsets, true);
+	}
+	private function outputHex($value) {
+		return "0x".strtoupper(dechex($value))."";
+	}
+	public function outputOffsets() {
+		print "LocalPlayer=".$this->outputHex($this->offsetsArray['signatures']['dwLocalPlayer']).",".
+		"EntityList=".$this->outputHex($this->offsetsArray['signatures']['dwEntityList']).",".
+		"EnginePointer=".$this->outputHex($this->offsetsArray['signatures']['dwClientState']).",".
+		"RadarBase=".$this->outputHex($this->offsetsArray['signatures']['dwRadarBase']).",".
+		"iGameResource=".$this->outputHex($this->offsetsArray['signatures']['dwPlayerResource']).",".
+		"ScoreBoardBase=".$this->outputHex($this->offsetsArray['signatures']['dwPlayerResource']).",".
+		"Glowptr=".$this->outputHex($this->offsetsArray['signatures']['dwGlowObjectManager']).",".
+		"jump=".$this->outputHex($this->offsetsArray['signatures']['dwForceJump']).",".
+		"Glowindex=".$this->outputHex($this->offsetsArray['netvars']['m_iGlowIndex']).",".
+		"m_iCompetitiveRanking=".$this->outputHex($this->offsetsArray['netvars']['m_iCompetitiveRanking']).",".
+		"m_iCompetitiveWins=".$this->outputHex($this->offsetsArray['netvars']['m_iCompetitiveWins']).",".
+		"m_bIsDormant=0xE9,".
+		"c_dwBaseEntityPosition=".$this->outputHex($this->offsetsArray['netvars']['m_vecOrigin']).",".
+		"viewAngelOff=".$this->outputHex($this->offsetsArray['signatures']['dwClientState_ViewAngles']).",".
+		"m_iTeamNum=".$this->outputHex($this->offsetsArray['netvars']['m_iTeamNum']).",".
+		"m_iHealth=".$this->outputHex($this->offsetsArray['netvars']['m_iHealth']).",".
+		"m_iCrossHairID=".$this->outputHex($this->offsetsArray['netvars']['m_iCrosshairId']).",".
+		"m_hActiveWeapon=".$this->outputHex($this->offsetsArray['netvars']['m_hActiveWeapon']).",".
+		"m_iWeaponID=0x32E0,".
+		"m_fFlashMaxAlpha=".$this->outputHex($this->offsetsArray['netvars']['m_flFlashMaxAlpha']).",".
+		"m_bSpotted=".$this->outputHex($this->offsetsArray['netvars']['m_bSpotted']).",".
+		"m_fFlags=".$this->outputHex($this->offsetsArray['netvars']['m_fFlags']).",".
+		"m_aimPunchAngle=".$this->outputHex($this->offsetsArray['netvars']['m_aimPunchAngle']).",".
+		"m_Local=".$this->outputHex($this->offsetsArray['netvars']['m_Local']).",".
+		"BoneMatrix=".$this->outputHex($this->offsetsArray['netvars']['m_dwBoneMatrix']).",".
+		"RadarPointer=".$this->outputHex($this->offsetsArray['signatures']['dwRadarBase']).",".
+		"RadarHealth=0x20,".
+		"RadarName=0x24,".
+		"RadarSize=0x1E0,".
+		"m_szLastPlaceName=".$this->outputHex($this->offsetsArray['netvars']['m_szLastPlaceName']).",".
+		"m_angEyeAngles=0xB23C,".
+		"m_iObserverMode=".$this->outputHex($this->offsetsArray['netvars']['m_iObserverMode'])."";
+	}
+}
+$fetchOffsets = new CsgoOffsets;
+$fetchOffsets->outputOffsets();
 ?>
