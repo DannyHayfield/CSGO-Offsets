@@ -26,7 +26,7 @@ class CsgoOffsets {
 		"m_iHealth=".$this->outputHex($this->offsetsArray['netvars']['m_iHealth']).",".
 		"m_iCrossHairID=".$this->outputHex($this->offsetsArray['netvars']['m_iCrosshairId']).",".
 		"m_hActiveWeapon=".$this->outputHex($this->offsetsArray['netvars']['m_hActiveWeapon']).",".
-		"m_iWeaponID=0x32E0,".
+		"m_iWeaponID=".$this->outputHex($this->offsetsArray['netvars']['m_iItemDefinitionIndex']).",".
 		"m_fFlashMaxAlpha=".$this->outputHex($this->offsetsArray['netvars']['m_flFlashMaxAlpha']).",".
 		"m_bSpotted=".$this->outputHex($this->offsetsArray['netvars']['m_bSpotted']).",".
 		"m_fFlags=".$this->outputHex($this->offsetsArray['netvars']['m_fFlags']).",".
